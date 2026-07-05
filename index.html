@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocarde — Website Mockups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    header { margin-bottom: 3rem; }
+    header p { color: #666; margin-top: 0.5rem; max-width: 42rem; }
+    h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 600; letter-spacing: -0.02em; }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 700px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: #999; }
+    .card-preview {
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+      color: #fff;
+    }
+    .card-preview h2 { font-size: 1.125rem; font-weight: 600; }
+    .card-preview span { font-size: 0.75rem; opacity: 0.85; display: block; margin-top: 0.25rem; }
+    .preview-a { background: linear-gradient(160deg, #1a1a2e 0%, #2d2d44 60%, #c9a961 100%); }
+    .preview-b { background: linear-gradient(160deg, #f5f0e8 0%, #e8ddd0 40%, #b85c38 100%); color: #2a1810; }
+    .preview-c { background: linear-gradient(160deg, #fff 0%, #f0f0f0 50%, #2d5a4a 100%); color: #111; }
+    .preview-c h2, .preview-c span { color: #fff; mix-blend-mode: difference; }
+    .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .card-body p { font-size: 0.875rem; color: #555; flex: 1; }
+    .tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    .cta {
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.8125rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Vocarde — 3 website mockups</h1>
+      <p>Drie richtingen voor een moderne, mobielvriendelijke website. Open elke mockup en verklein het browservenster om het mobiele gedrag te testen.</p>
+    </header>
+
+    <div class="grid">
+      <a class="card" href="mockup-a-classical.html">
+        <div class="card-preview preview-a">
+          <div>
+            <span>Mockup A</span>
+            <h2>Klassieke elegantie</h2>
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="tag">Referentie: The King's Singers</span>
+          <p>Donker, verfijnd en concertgericht. Serif typografie, gouden accenten en een premium uitstraling voor een vocaal ensemble van wereldniveau.</p>
+          <span class="cta">Bekijk mockup →</span>
+        </div>
+      </a>
+
+      <a class="card" href="mockup-b-immersive.html">
+        <div class="card-preview preview-b">
+          <div>
+            <span>Mockup B</span>
+            <h2>Warm &amp; meeslepend</h2>
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="tag">Referentie: Koriolis</span>
+          <p>Emotioneel verhaal met grote beelden. Secties als Ontdek, Luister en Beleef — warme kleuren en een persoonlijke, Vlaamse toon.</p>
+          <span class="cta">Bekijk mockup →</span>
+        </div>
+      </a>
+
+      <a class="card" href="mockup-c-minimal.html">
+        <div class="card-preview preview-c">
+          <div>
+            <span>Mockup C</span>
+            <h2>Strak &amp; modern</h2>
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="tag">Contemporary</span>
+          <p>Veel witruimte, duidelijke hiërarchie en een strak grid. Fris, toegankelijk en volledig gericht op mobiel gebruik.</p>
+          <span class="cta">Bekijk mockup →</span>
+        </div>
+      </a>
+    </div>
+
+    <footer>
+      Mockups voor evaluatie — content gebaseerd op vocarde.be. Afbeeldingen zijn placeholders.
+    </footer>
+  </div>
+</body>
+</html>

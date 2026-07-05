@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocarde — Mockup A: Klassieke elegantie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #12121a;
+      --bg-soft: #1a1a28;
+      --gold: #c9a961;
+      --gold-dim: #a08850;
+      --text: #f0ece4;
+      --text-muted: #9a958a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Lato', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Nav */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background: rgba(18, 18, 26, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .logo span { color: var(--gold); }
+    .nav-links { display: none; gap: 1.25rem; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a {
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .menu-btn {
+      background: none;
+      border: 1px solid rgba(201, 169, 97, 0.4);
+      color: var(--gold);
+      padding: 0.5rem 0.75rem;
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--sans);
+    }
+    @media (min-width: 1024px) {
+      .nav-links { display: flex; }
+      .menu-btn { display: none; }
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--bg);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+    }
+    .mobile-menu .close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 6rem 1.5rem 4rem;
+      background:
+        linear-gradient(to top, var(--bg) 0%, transparent 50%),
+        linear-gradient(to right, rgba(18,18,26,0.85) 0%, transparent 70%),
+        url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1600&q=80') center/cover;
+    }
+    .hero-inner { max-width: 680px; }
+    .hero-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero p {
+      font-size: 1.0625rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background: var(--gold); color: var(--bg); }
+    .btn-filled {
+      background: var(--gold);
+      color: var(--bg);
+      border-color: var(--gold);
+    }
+    .btn-filled:hover { background: var(--gold-dim); border-color: var(--gold-dim); }
+
+    /* Sections */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    /* About */
+    .about { background: var(--bg-soft); }
+    .about-grid {
+      display: grid;
+      gap: 3rem;
+    }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+    .about-text p { color: var(--text-muted); margin-bottom: 1.25rem; }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .stat {
+      border: 1px solid rgba(201, 169, 97, 0.2);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Concerts */
+    .concert-list { border-top: 1px solid rgba(201, 169, 97, 0.15); }
+    .concert-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1rem 1.5rem;
+      align-items: center;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+    }
+    @media (max-width: 600px) {
+      .concert-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
+    .concert-date {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--gold);
+      min-width: 5rem;
+    }
+    .concert-date small {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .concert-info h3 {
+      font-family: var(--serif);
+      font-size: 1.375rem;
+      font-weight: 400;
+    }
+    .concert-info p { font-size: 0.875rem; color: var(--text-muted); }
+    .concert-link {
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    /* Quote */
+    .quote-section {
+      text-align: center;
+      padding: 6rem 1.5rem;
+      background:
+        linear-gradient(rgba(18,18,26,0.9), rgba(18,18,26,0.9)),
+        url('https://images.unsplash.com/photo-1507838153419-4e09489f78cc?w=1200&q=80') center/cover;
+    }
+    blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-style: italic;
+      max-width: 36rem;
+      margin: 0 auto 1rem;
+      line-height: 1.5;
+    }
+    cite {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .contact-card {
+      background: var(--bg-soft);
+      padding: 2rem;
+      border: 1px solid rgba(201, 169, 97, 0.15);
+    }
+    .contact-card h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .contact-card p { color: var(--text-muted); font-size: 0.9375rem; }
+    .contact-card a { color: var(--gold); }
+
+    /* Footer */
+    footer {
+      padding: 2rem 1.5rem;
+      border-top: 1px solid rgba(201, 169, 97, 0.15);
+      text-align: center;
+    }
+    footer p { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.05em; }
+    .mockup-badge {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      background: rgba(201, 169, 97, 0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.375rem 0.75rem;
+      font-size: 0.625rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 50;
+    }
+    .mockup-badge a { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="#home" class="logo">Voc<span>arde</span></a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#bio">Bio</a>
+      <a href="#fotogalerij">Fotogalerij</a>
+      <a href="#repertoire">Repertoire</a>
+      <a href="#geluidsfragmenten">Geluidsfragmenten</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="menu-btn" id="openMenu" aria-label="Menu openen">Menu</button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close" id="closeMenu" aria-label="Menu sluiten">&times;</button>
+    <a href="#home" class="mobile-link">Home</a>
+    <a href="#agenda" class="mobile-link">Agenda</a>
+    <a href="#bio" class="mobile-link">Bio</a>
+    <a href="#fotogalerij" class="mobile-link">Fotogalerij</a>
+    <a href="#repertoire" class="mobile-link">Repertoire</a>
+    <a href="#geluidsfragmenten" class="mobile-link">Geluidsfragmenten</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <header class="hero" id="home">
+    <div class="hero-inner">
+      <p class="hero-label">Vocaal ensemble · Dessel</p>
+      <h1>Meerstemmige muziek, uit het hart</h1>
+      <p>Twaalf zangers brengen profane en religieuze werken uit verschillende periodes — van ensemble tot solo, steeds met verfijning en afwisseling.</p>
+      <a href="#agenda" class="btn btn-filled">Bekijk concerten</a>
+    </div>
+  </header>
+
+  <section class="about" id="bio">
+    <div class="container">
+      <p class="section-label">Over Vocarde</p>
+      <div class="divider"></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Vocal Arts Dessel</h2>
+          <p>Vocaal ensemble Vocarde is een groep zangers uit Dessel en omgeving die allen een zangopleiding volgden. Het ensemble brengt meerstemmige muziek uit verschillende periodes en genres.</p>
+          <p>Het ensemble ontstond in 2006 en koos de naam Vocarde, voluit "Vocal Arts Dessel". Tussendoor en in de aanloop naar een project leidt Peter Claes de repetities.</p>
+          <p>In april 2017 vestigde Vocarde zich tijdens het provinciaal koortornooi in ere-afdeling met grote onderscheiding — een unieke prestatie voor een vocaal ensemble uit de Kempen.</p>
+        </div>
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="stat-num">12</div>
+            <div class="stat-label">Zangers</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">2006</div>
+            <div class="stat-label">Opgericht</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Jaar muziek maken</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">Ere</div>
+            <div class="stat-label">Afdeling 2017</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agenda">
+    <div class="container">
+      <p class="section-label">Agenda</p>
+      <h2 class="section-title">C O N C E R T E N</h2>
+      <div class="concert-list">
+        <div class="concert-item">
+          <div class="concert-date">12 okt<small>2026 · 20:00</small></div>
+          <div class="concert-info">
+            <h3>Herfstconcert Vocarde</h3>
+            <p>Sint-Apolloniakerk, Dessel</p>
+          </div>
+          <a href="#" class="concert-link">Meer info →</a>
+        </div>
+        <div class="concert-item">
+          <div class="concert-date">6 dec<small>2026 · 19:30</small></div>
+          <div class="concert-info">
+            <h3>Adventsprogramma</h3>
+            <p>CC De Plom, Mol</p>
+          </div>
+          <a href="#" class="concert-link">Meer info →</a>
+        </div>
+        <div class="concert-item">
+          <div class="concert-date">22 mrt<small>2027 · 15:00</small></div>
+          <div class="concert-info">
+            <h3>Lentemuziek</h3>
+            <p>Gastoptreden, locatie TBD</p>
+          </div>
+          <a href="#" class="concert-link">Meer info →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <blockquote>"Zo kan je tijdens een concert het ganse ensemble 'samen' bezig horen, maar zijn er ook duetten, trio's, kwartetten en af en toe zelfs een solo."</blockquote>
+    <cite>— Over het ensemble</cite>
+  </section>
+
+  <section id="fotogalerij">
+    <div class="container">
+      <p class="section-label">Beelden</p>
+      <h2 class="section-title">Fotogalerij</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;">
+        <img src="https://www.vocarde.be/wp-content/uploads/2013/08/10.jpg" alt="Vocarde optreden" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+        <img src="https://images.unsplash.com/photo-1511379938545-c1f69419868d?w=600&q=80" alt="Repetitie" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+        <img src="https://images.unsplash.com/photo-1507838153419-4e09489f78cc?w=600&q=80" alt="Concert" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+        <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=600&q=80" alt="Koor" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+      </div>
+    </div>
+  </section>
+
+  <section id="repertoire" style="background:var(--bg-soft)">
+    <div class="container">
+      <p class="section-label">Muziek</p>
+      <h2 class="section-title">Repertoire</h2>
+      <div style="display:grid;gap:1rem;max-width:36rem;">
+        <div style="border-bottom:1px solid rgba(201,169,97,0.15);padding-bottom:1rem;">
+          <p style="font-size:.6875rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem;">Profaan</p>
+          <p style="color:var(--text-muted)">Renaissance- en barokwerken, liederen, madrigalen en hedendaagse arrangementen voor kleine bezetting.</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(201,169,97,0.15);padding-bottom:1rem;">
+          <p style="font-size:.6875rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem;">Religieus</p>
+          <p style="color:var(--text-muted)">Motetten, hymnen en geestelijke werken uit verschillende tijdperken.</p>
+        </div>
+        <div>
+          <p style="font-size:.6875rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem;">Samenstelling</p>
+          <p style="color:var(--text-muted)">Van tutti-ensemble tot intieme duetten, trio's en kwartetten — steeds op maat van het programma.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="geluidsfragmenten">
+    <div class="container">
+      <p class="section-label">Luister</p>
+      <h2 class="section-title">Geluidsfragmenten</h2>
+      <div style="display:grid;gap:.75rem;max-width:40rem;">
+        <div style="display:flex;align-items:center;gap:1rem;border:1px solid rgba(201,169,97,0.2);padding:1.25rem;">
+          <div style="width:2.5rem;height:2.5rem;border:1px solid var(--gold);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+            <div style="border:6px solid transparent;border-left:10px solid var(--gold);margin-left:3px;"></div>
+          </div>
+          <div><p style="font-size:.875rem;">Ensemble — profane werken</p><p style="font-size:.75rem;color:var(--text-muted)">Fragment uit herfstconcert</p></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;border:1px solid rgba(201,169,97,0.2);padding:1.25rem;">
+          <div style="width:2.5rem;height:2.5rem;border:1px solid var(--gold);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+            <div style="border:6px solid transparent;border-left:10px solid var(--gold);margin-left:3px;"></div>
+          </div>
+          <div><p style="font-size:.875rem;">Kwartet — religieuze muziek</p><p style="font-size:.75rem;color:var(--text-muted)">Fragment uit adventsprogramma</p></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;border:1px solid rgba(201,169,97,0.2);padding:1.25rem;">
+          <div style="width:2.5rem;height:2.5rem;border:1px solid var(--gold);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+            <div style="border:6px solid transparent;border-left:10px solid var(--gold);margin-left:3px;"></div>
+          </div>
+          <div><p style="font-size:.875rem;">Duet — barokrepertoire</p><p style="font-size:.75rem;color:var(--text-muted)">Fragment uit lentemuziek</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Neem contact op</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Boekingen &amp; info</h3>
+          <p>Voor vragen over concerten, gastoptredens of samenwerkingen.</p>
+          <p style="margin-top:1rem"><a href="mailto:info@vocarde.be">info@vocarde.be</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Repetities</h3>
+          <p>Onder leiding van Peter Claes. Vocarde werkt ook graag samen met gastdirigenten.</p>
+          <p style="margin-top:1rem; color: var(--text-muted)">Dessel en omgeving, Kempen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; Vocarde — Vocaal ensemble · Dessel · Mockup A</p>
+  </footer>
+
+  <div class="mockup-badge"><a href="index.html">← Alle mockups</a></div>
+
+  <script>
+    const menu = document.getElementById('mobileMenu');
+    document.getElementById('openMenu').onclick = () => menu.classList.add('open');
+    document.getElementById('closeMenu').onclick = () => menu.classList.remove('open');
+    document.querySelectorAll('.mobile-link').forEach(l => l.onclick = () => menu.classList.remove('open'));
+  </script>
+</body>
+</html>
