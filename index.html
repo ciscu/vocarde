@@ -65,6 +65,25 @@
       font-weight: 500;
       color: #1a1a1a;
     }
+    .card.featured {
+      border-color: #b85c38;
+      box-shadow: 0 0 0 2px #b85c38, 0 4px 16px rgba(184, 92, 56, 0.15);
+      position: relative;
+    }
+    .card.featured:hover { border-color: #9a4a2c; }
+    .badge {
+      position: absolute;
+      top: -1px;
+      right: 1.25rem;
+      background: #b85c38;
+      color: #fff;
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.3em 0.75em;
+      border-radius: 0 0 6px 6px;
+    }
     footer {
       margin-top: 3rem;
       padding-top: 1.5rem;
@@ -96,7 +115,8 @@
         </div>
       </a>
 
-      <a class="card" href="mockup-b-immersive.html">
+      <a class="card featured" href="mockup-b-immersive.html">
+        <span class="badge">Aanbevolen</span>
         <div class="card-preview preview-b">
           <div>
             <span>Mockup B</span>
